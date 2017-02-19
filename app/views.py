@@ -69,7 +69,10 @@ def filelisting():
     filelist = []
     for subdir, dirs, files, in os.walk("app/static/uploads"):
         for file in files:
-            filelist.append("{}".format(file))
+            if file[-4:] == '.jpg' or file[-4:] == '.JPG':
+                filelist.append(file)
+            else:
+                filelist.append("{}".format(file))
     return render_template('filelisting.html', filelist = filelist)        
     
 ###

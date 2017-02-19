@@ -8,7 +8,11 @@
 
 {% for file in filelist %}
 <ul>
-    <li>{{ file }}</li>
+    {% if file[-4:] == '.jpg' or file[-4:] == '.JPG' %}
+        <li> <img src="static/uploads/{{file}}" width = '200px' height = '200px'></img> </li>
+    {% else %}
+        <li>{{ file }}</li>
+    {% endif %}
 </ul>
 {% endfor %}
 
